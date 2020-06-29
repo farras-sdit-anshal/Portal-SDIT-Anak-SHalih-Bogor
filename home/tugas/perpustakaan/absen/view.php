@@ -45,7 +45,7 @@
     </form>
     
     <div class="container">
-      <h3 class="text-muted text-center bg-info" id="info">halo</h3>
+      <h3 class="text-muted text-center bg-info" id="info"></h3>
     </div>
     
     <div class="container" id="daftar">

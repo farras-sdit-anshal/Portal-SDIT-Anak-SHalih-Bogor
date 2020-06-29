@@ -12,9 +12,9 @@
 
 // create for object mysql
 $host = "localhost";
-$username = "root";
-$pass = "";
-$dbname = "base";
+$username = "farras";
+$pass = "farrasmuhammad";
+$dbname = "ppdb";
 
 function connectDb (){
     $host = $GLOBALS['host'];
@@ -382,10 +382,11 @@ function getKelasByNIs ($nis){
       
       public function __construct ($nis){
         $this->nis = $nis;
-        $host = "localhost";
-        $username = "root";
-        $pass = "";
-        $dbname = "base";
+    $host = $GLOBALS['host'];
+    $username = $GLOBALS['username'];
+    $pass = $GLOBALS['pass'];
+    $dbname = $GLOBALS['dbname'];
+
             
         if (mysqli_connect ($host,$username,$pass,$dbname)){
             $this->connection = mysqli_connect ($host,$username,$pass,$dbname);
