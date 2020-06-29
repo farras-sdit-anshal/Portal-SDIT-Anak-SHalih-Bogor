@@ -382,11 +382,18 @@ function getKelasByNIs ($nis){
       
       public function __construct ($nis){
         $this->nis = $nis;
+<<<<<<< HEAD
     $host = $GLOBALS['host'];
     $username = $GLOBALS['username'];
     $pass = $GLOBALS['pass'];
     $dbname = $GLOBALS['dbname'];
 
+=======
+        $host = $GLOBALS['host'];
+        $username = $GLOBALS['username'];
+        $pass = $GLOBALS['pass'];
+        $dbname = $GLOBALS['dbname'];
+>>>>>>> c8d96819da54e5fdee62c99739db7b1d011acb89
             
         if (mysqli_connect ($host,$username,$pass,$dbname)){
             $this->connection = mysqli_connect ($host,$username,$pass,$dbname);

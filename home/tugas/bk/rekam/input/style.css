@@ -1,0 +1,44 @@
+.biodata {
+  padding: 10px;
+}
+.biodata th {
+  position: sticky;
+  text-align: left;
+  font-size: 24px;
+  text-decoration: underline;
+}
+.biodata td {
+    padding: 10px;
+    text-align: justify;
+}
+
+.biodata td:first-child {
+  width: 190px;
+}
+
+.biodata td.collspan {
+    text-align: center;
+}
+
+p {
+  text-decoration: none;
+  font-weight: normal;
+  text-align: justify;
+}
+
+.carousel {
+  background-color: #C4C4C4;
+  border-radius: 5px;
+}
+
+.hide-form {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .biodata td:first-child {
+        width: 70px;
+    }
+    
+}

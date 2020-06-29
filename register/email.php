@@ -95,7 +95,7 @@ $mail->From = "farras@anakshalihbogor.sch.id";
 $mail->FromName = "Sistem Informasi SDIT Anak Shalih";
 
 
-$mail->addAddress("$data[3]", "Hallo Dady");
+$mail->addAddress("$data[3]", "SISTEM SDIT ANAK SHALIH BOGOR");
 
 $mail->isHTML(true);
 

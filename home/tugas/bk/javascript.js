@@ -1,92 +1,56 @@
-window.addEventListener ("load",function (){
-    var listNode = document.getElementsByTagName("select");
+/*
+ * Bismillah
+ * SDIT Anshal, 8 Januari 2020
+ * 08:57 PM
+*/
+var checkNode = document.getElementsByTagName ("input");
 
-    
-
-
-    
-    function click (e){
-        var pdfNode = e.target.parentNode.nextSibling.nextSibling;
-        var emailNode = pdfNode.nextSibling.nextSibling;
-        var its = e.target.value;
-        
-        
-        
-        var hrefPdf = pdfNode.getAttribute("href");
-        var newhrefPdf = hrefPdf.substring(0,hrefPdf.length-1)+its;
-        
-        var hrefEmail = emailNode.getAttribute("href");
-        var newhrefEmail = hrefEmail.substring(0,hrefEmail.length-1)+its;
-        
-        pdfNode.setAttribute ("href",newhrefPdf);
-        emailNode.setAttribute ("href",newhrefEmail);
-
-        
-        
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    
-    for (var i = 0 ; i < listNode.length ; i++){
-        listNode[i].addEventListener ("change",click);
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
     }
-    
-    
-    //  ajax send email
-    var buttonEmail = document.getElementsByClassName ("email");
-    var textEmail = document.getElementsByClassName ("alamat");
-    
-    function setEmail (e){
-        var emailNode = e.target.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling;
+  }
+  return "";
+}
 
-        emailNode.setAttribute("email",e.target.value);
-    }
+function isChecked (e) {
+    console.log (e.target.checked);
     
-    function callAjax (e){
-        e.preventDefault();
-        var href = (e.target.getAttribute("href"));
-        var alamat = (e.target.getAttribute("email"));
-        var warn = e.target.parentNode.childNodes[1].childNodes[2];
-        var loadingPage = document.getElementById ("loading-page");
+}
+
+function updateJob (e){
+    var check = e.target.checked;
+    var job = e.target.name;
+    var id_number = e.target.getAttribute ("id_name");
+    
+    var request = new XMLHttpRequest ();
+    request.open ("get","ajax.php?rand"+Math.random()+"&check="+check+"&job="+job+"&id="+id_number);
+    request.send ();
+    
+    request.onreadystatechange = function () {
         
-        if (alamat == "none" || alamat==""){
-            
-            warn.classList.remove ("sr-only");
+        if (request.readyState == 4 && request.status == 200 ){
+            console.log (request.responseText);
         }
-        else {
-            // send email ajax
-            warn.classList.add ("sr-only");
-            
-            var request = new XMLHttpRequest ();
-            
-            if (request.responseText == ""){
-                loadingPage.classList.replace ("sr-only","full");
+        
+    };
+    
+}
 
-            }
-            
-            request.open ("GET","output/pdf-email.php?"+href+"&alamat="+alamat);
-            request.send();
-            
-            request.onreadystatechange = function (){
-              if (request.readyState == 4 && request.status == 200){
-                loadingPage.classList.replace ("full","sr-only");
-                
-                window.alert (request.responseText);
-              }
-            };
-        } 
+for (var i = 0 ; i < checkNode.length ; i++){
+    
+    if (checkNode[i].type == "checkbox"){
+        checkNode[i].addEventListener ("click",updateJob);
+        checkNode[i].addEventListener ("click",isChecked);
     }
     
-    for (i = 0 ; i < buttonEmail.length ; i++){
-        
-        buttonEmail[i].addEventListener ("click",callAjax);
-        textEmail[i].addEventListener ("keyup",setEmail);
-
-        
-    }
-    
-    
-});
-
-
-
-
+}
 

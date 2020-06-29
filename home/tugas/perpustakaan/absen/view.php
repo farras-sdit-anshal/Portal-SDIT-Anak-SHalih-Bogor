@@ -44,18 +44,22 @@
       </div>
     </form>
     
+<<<<<<< HEAD
     <div class="container">
       <h3 class="text-muted text-center bg-info" id="info"></h3>
+=======
+    <div class="container mt-3 p-2 bg-info">
+      <h4 class="text-muted text-center " id="info">
+        latest presence
+      </h4>
+>>>>>>> c8d96819da54e5fdee62c99739db7b1d011acb89
     </div>
     
-    <div class="container" id="daftar">
+    <div class="container mt-3" id="daftar">
       
     </div>
     
   </div>
-  <?php
-    require ("daftar-hadir.php");
-  ?>
 <script src="javascript.js"></script>
 </body>
 </html>

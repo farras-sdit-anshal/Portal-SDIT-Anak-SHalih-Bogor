@@ -1,8 +1,8 @@
 <?php
 
 require ("../../../advance.php");
-isCookieSet();
-if (isJobDefined ($_COOKIE['id'],'Catat Rekam Prilaku')){
+
+if (isJobDefined ($_COOKIE['id'],'perpustakaan')){
     header ("location: error.php");
 }
 include ("control.php");

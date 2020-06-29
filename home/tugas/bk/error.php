@@ -11,9 +11,12 @@
   <div class="container error">
     Opps, something wrong
     <br>
-    <a href="../../../">Back to home</a>
+    <a href="../../">Back to home</a>
   </div>
 </body>
 </html>
 <pre>
+<?php
+    print_r ($_SERVER['REQUEST_URI']);
+?>
 </pre>
